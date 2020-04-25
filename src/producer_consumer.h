@@ -68,7 +68,7 @@ void put(buffer_t *buf, window_widgets_t *widgets, event_pool_t *pool)
     int timeout = pool->slowmotion_clock;
     pool->slowmotion_clock += ASYNC_TIMEOUT_STEP;
     pthread_t tid = pthread_self();
-    init_sync_args(async_args, value, fill, tid, user_log_buf, buffer_monitor_labels, current_thread);
+    init_async_args(async_args, value, fill, tid, user_log_buf, buffer_monitor_labels, current_thread);
     g_timeout_add(timeout, async_put, async_args);
 
 #ifdef DEBUG
@@ -112,7 +112,7 @@ int get(buffer_t *buf, window_widgets_t *widgets, event_pool_t *pool)
     int timeout = pool->slowmotion_clock;
     pool->slowmotion_clock += ASYNC_TIMEOUT_STEP;
     pthread_t tid = pthread_self();
-    init_sync_args(async_args, value, use, tid, user_log_buf, buffer_monitor_labels, current_thread);
+    init_async_args(async_args, value, use, tid, user_log_buf, buffer_monitor_labels, current_thread);
     g_timeout_add(timeout, async_get, async_args);
 
 #ifdef DEBUG

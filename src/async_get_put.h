@@ -76,7 +76,7 @@ bool destory_event_pool(event_pool_t *pool)
 }
 
 async_args_t *
-init_sync_args(async_args_t *args, int value, int grid_offset, pthread_t tid,
+init_async_args(async_args_t *args, int value, int grid_offset, pthread_t tid,
                GtkTextBuffer *buffer, GtkLabel **label_grid, GtkLabel *current_thread)
 {
     args->value = value;
